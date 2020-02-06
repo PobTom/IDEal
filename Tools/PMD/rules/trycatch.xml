@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+
+<ruleset name="TryCatch"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+A ruleset to find common mistakes in try or catch blocks.
+	</description>
+
+	<rule name="AvoidInstanceofChecksInCatchClause"
+   		language="java"
+    		 since="3.0"
+          message="An instanceof check is being performed on the caught exception.  Create a separate catch clause for this exception type."
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#AvoidInstanceofChecksInCatchClause">
+		<description>
+Each caught exception type should be handled in its own catch clause.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//CatchStatement/FormalParameter
+ /following-sibling::Block//InstanceOfExpression/PrimaryExpression/PrimaryPrefix
+  /Name[
+   @Image = ./ancestor::Block/preceding-sibling::FormalParameter
+    /VariableDeclaratorId/@Image
+  ]
+    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+try { // Avoid this
+ // do something
+} catch (Exception ee) {
+ if (ee instanceof IOException) {
+  cleanup();
+ }
+}
+try {  // Prefer this:
+ // do something
+} catch (IOException ee) {
+ cleanup();
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="PreserveStackTrace"
+      since="3.7"
+      message="New exception is thrown in catch block, original stack trace may be lost"
+      class="net.sourceforge.pmd.lang.java.rule.design.PreserveStackTraceRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#PreserveStackTrace">
+		<description>
+Throwing a new exception from a catch block without passing the original exception into the
+new exception will cause the original stack trace to be lost making it difficult to debug 
+effectively.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+    void good() {
+        try{
+            Integer.parseInt("a");
+        } catch (Exception e) {
+            throw new Exception(e); // first possibility to create exception chain
+        }
+        try {
+            Integer.parseInt("a");
+        } catch (Exception e) {
+            throw (IllegalStateException)new IllegalStateException().initCause(e); // second possibility to create exception chain.
+        }
+    }
+    void bad() {
+        try{
+            Integer.parseInt("a");
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+}
+    ]]>
+		</example>
+	</rule>
+
+
+	<rule name="EmptyCatchBlock"
+  		  language="java"
+  	  	  since="0.1"
+          message="Avoid empty catch blocks"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyCatchBlock">
+		<description>
+Empty Catch Block finds instances where an exception is caught, but nothing is done.  
+In most circumstances, this swallows an exception which should either be acted on 
+or reported.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//CatchStatement
+ [count(Block/BlockStatement) = 0 and ($allowCommentedBlocks != 'true' or Block/@containsComment = 'false')]
+ [FormalParameter/Type/ReferenceType
+   /ClassOrInterfaceType[@Image != 'InterruptedException' and @Image != 'CloneNotSupportedException']
+ ]
+ ]]>
+				</value>
+			</property>
+			<property name="allowCommentedBlocks" type="Boolean" description="Empty blocks containing comments will be skipped" value="false"/>
+		</properties>
+		<example>
+			<![CDATA[
+public void doSomething() {
+  try {
+    FileInputStream fis = new FileInputStream("/tmp/bugger");
+  } catch (IOException ioe) {
+      // not good
+  }
+}
+ ]]>
+		</example>
+	</rule>
+
+	<rule name="EmptyTryBlock"
+    		 language="java"
+    		 since="0.4"
+          message="Avoid empty try blocks"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyTryBlock">
+		<description>
+Avoid empty try blocks - what's the point?
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//TryStatement/Block[1][count(*) = 0]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+ public void bar() {
+  try {
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+ }
+}
+]]>
+		</example>
+	</rule>
+
+
+	<rule name="EmptyFinallyBlock"
+    		 language="java"
+    		 since="0.4"
+          message="Avoid empty finally blocks"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyFinallyBlock">
+		<description>
+Empty finally blocks serve no purpose and should be removed.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//FinallyStatement[count(Block/BlockStatement) = 0]
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+ public void bar() {
+  try {
+    int x=2;
+   } finally {
+    // empty!
+   }
+ }
+}
+ ]]>
+		</example>
+	</rule>
+
+	<rule  name="AvoidCatchingGenericException"
+    since="4.2.6" language="java"
+    message="Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block"
+    externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/strictexception.html#AvoidCatchingGenericException"
+    class="net.sourceforge.pmd.lang.rule.XPathRule">
+		<description>
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+		</description>
+		<priority>6</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+        //CatchStatement/FormalParameter/Type/ReferenceType/ClassOrInterfaceType[
+          @Image='NullPointerException' or
+          @Image='Exception' or
+          @Image='RuntimeException']
+      ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+package com.igate.primitive;
+    
+public class PrimitiveType {
+    
+  public void downCastPrimitiveType() {
+    try {
+      System.out.println(" i [" + i + "]");
+    } catch(Exception e) {
+      e.printStackTrace();
+    } catch(RuntimeException e) {
+      e.printStackTrace();
+    } catch(NullPointerException e) {
+      e.printStackTrace();
+    }
+  } 
+}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidCatchingThrowable"
+   		since="1.2"
+         message="A catch statement should never catch throwable since it includes errors."
+          class="net.sourceforge.pmd.lang.java.rule.strictexception.AvoidCatchingThrowableRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/strictexception.html#AvoidCatchingThrowable">
+		<description>
+Catching Throwable errors is not recommended since its scope is very broad. It includes runtime issues such as 
+OutOfMemoryError that should be exposed and managed separately.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public void bar() {
+	try {
+     // do something
+    } catch (Throwable th) {  // should not catch Throwable
+		th.printStackTrace();
+    }
+  }
+	]]>
+		</example>
+	</rule>
+
+
+</ruleset>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<ruleset name="Switches"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+A ruleset to count the number of switch statements	</description>
+
+	<rule name="SwitchStatementFound"
+   		language="java"
+  		  since="1.0"
+        message="SwitchStatementFound"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#SwitchStmtsShouldHaveDefault">
+		<description>
+Finds switch statements
+		</description>
+		<priority>3</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement
+                  ]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+
+
+</ruleset>

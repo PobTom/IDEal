@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<ruleset name="abstractclasses"
+		xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+		The abstract classes ruleset contains rules related to use of abstract classes. Including checking that the abstract class contains abstract methods and
+		is named appropriately.
+	</description>
+
+	<rule name="AbstractClassWithoutAbstractMethod"
+			language="java"
+			since="3.0"
+			message="This abstract class does not have any abstract methods"
+			class="net.sourceforge.pmd.lang.rule.XPathRule"
+			externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#AbstractClassWithoutAbstractMethod">
+		<description>
+			The abstract class does not contain any abstract methods. An abstract class suggests
+			an incomplete implementation, which is to be completed by subclasses implementing the
+			abstract methods. If the class is intended to be used as a base class only (not to be instantiated
+			directly) a protected constructor can be provided prevent direct instantiation.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+						//ClassOrInterfaceDeclaration
+						 [@Abstract='true'
+						  and count( .//MethodDeclaration[@Abstract='true'] )=0 ]
+						  [count(ImplementsList)=0]
+						  [count(.//ExtendsList)=0]
+					]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+				public abstract class Foo {
+				  void int method1() { ... }
+				  void int method2() { ... }
+				  // consider using abstract methods or removing
+				  // the abstract modifier and adding protected constructors
+				}
+			]]>
+		</example>
+	</rule>
+
+	<rule name="EmptyMethodInAbstractClassShouldBeAbstract"
+			language="java"
+			since="4.1"
+			class="net.sourceforge.pmd.lang.rule.XPathRule"
+			message="An empty method in an abstract class should be abstract instead"
+			externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#EmptyMethodInAbstractClassShouldBeAbstract">
+		<description>
+			Empty methods in an abstract class should be tagged as abstract. This helps to remove their inapproprate 
+			usage by developers who should be implementing their own versions in the concrete subclasses. 
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+                    //ClassOrInterfaceDeclaration[@Abstract = 'true']
+                        /ClassOrInterfaceBody
+                        /ClassOrInterfaceBodyDeclaration
+                        /MethodDeclaration[@Abstract = 'false' and @Native = 'false']
+                        [
+                            ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral) = 'true' )
+                            or
+                            ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[@Image = '0']) = 'true' )
+                            or
+                            ( boolean(./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal[string-length(@Image) = 2]) = 'true' )
+                            or
+                            (./Block[count(./BlockStatement) =  1]/BlockStatement/Statement/EmptyStatement)
+                            or
+                            ( count (./Block/*) = 0 )
+                        ]
+                ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+				public abstract class ShouldBeAbstract {
+					public Object couldBeAbstract() {
+						// Should be abstract method ?
+						return null;
+					}
+
+					public void couldBeAbstract() {
+					}
+				}
+	     	]]>
+		</example>
+	</rule>
+
+	<rule	name="AbstractClassWithoutAnyMethod"
+			language="java"
+			since="4.2"
+			class="net.sourceforge.pmd.lang.rule.XPathRule"
+			message="No abstract method which means that the keyword is most likely used to prevent instantiation. Use a private or protected constructor instead."
+			externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#AbstractClassWithoutAnyMethod">
+		<description>
+			If an abstract class does not provides any methods, it may be acting as a simple data container 
+			that is not meant to be instantiated. In this case, it is probably better to use a private or 
+			protected constructor in order to prevent instantiation than make the class misleadingly abstract.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+						//ClassOrInterfaceDeclaration[
+							(@Abstract = 'true')
+							and
+							(count(//MethodDeclaration) + count(//ConstructorDeclaration) = 0)
+						]
+                    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+				public class abstract Example {
+					String field;
+					int otherField;
+				}
+            ]]>
+		</example>
+	</rule>
+
+</ruleset>

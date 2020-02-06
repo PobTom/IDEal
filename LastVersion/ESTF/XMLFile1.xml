@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<keywords>
+<keyword>
+  <name>int</name>
+ <l_discription>Short for 'integer'. It's a data type used for whole numbers.</l_discription>
+  <description>You can store quite large numbers in the int variable type. The maximum value is 2147483647. If you want a minus number the lowest value you can have is -2147483648. If you want larger or smaller numbers you can use another number variable type: </description>
+  <Example> int numberOfStudents=26; 
+OR
+int luckyNumber=6;</Example>
+  <help_link>http://www.homeandlearn.co.uk/java/java_int_variables.html</help_link>
+  <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+</keyword>
+<keyword>
+  <name>double</name>
+  <l_discription>Data type used for numbers with fractions.</l_discription>
+  <description>Holds signed IEEE 64-bit (8-byte) double-precision floating-point numbers that range in value from -1.79769313486231570E+308 through -4.94065645841246544E-324 for negative values and from 4.94065645841246544E-324 through 1.79769313486231570E+308 for positive values. Double-precision numbers store an approximation of a real number. </description>
+  <Example> double averageHeight=175.3;
+OR
+double pizzaPrice=3.90;</Example>
+  <help_link>https://msdn.microsoft.com/en-us/library/x99xtshc.aspx</help_link>
+  <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+</keyword>
+  <keyword>
+    <name>String</name>
+    <l_discription>String is a data type that is used for any characters wrapped in double-quotes.</l_discription>
+    <description>Holds sequences of unsigned 16-bit (2-byte) code points that range in value from 0 through 65535. Each code point, or character code, represents a single Unicode character. A string can contain from 0 to approximately two billion (2 ^ 31) Unicode characters.</description>
+    <Example> String postcode="NN1 5PH";
+OR
+String welcomeMessage="Hi everyone!";</Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/thwcx436.aspx</help_link>
+    <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>public</name>
+    <l_discription>Anything that has got the keyword 'public' before it, is available from anywhere in the code.</l_discription>
+    <description>The public keyword is an access modifier for types and type members. Public access is the most permissive access level. There are no restrictions on accessing public members </description>
+    <Example> public String userName="DragonHunter"; 
+OR
+public int addNumbers(int a, int b){return a+b;}</Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/yzh058ae.aspx</help_link>
+    <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>private</name>
+    <l_discription>Anything that has got the keyword 'private' before it, is available only within its class.</l_discription>
+    <description>The public keyword is an access modifier for types and type members. Public access is the most permissive access level. There are no restrictions on accessing public members </description>
+    <Example> private String nickName="Darth";
+OR
+private boolean isAdult(int thisYear, int birthYear){return (thisYear-birthYear) >= 18;}
+    </Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/yzh058ae.aspx</help_link>
+    <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>boolean</name>
+    <l_discription>The boolean data type is used for checking if something is true or false.</l_discription>
+    <description>You can store quite large numbers in the int variable type. The maximum value is 2147483647. If you want a minus number the lowest value you can have is -2147483648. If you want larger or smaller numbers you can use another number variable type: </description>
+    <Example> boolean lightsOn = false;
+OR
+boolean isNo1BiggerThanNo2 = no1 > no2;</Example>
+    <help_link>http://www.homeandlearn.co.uk/java/java_int_variables.html</help_link>
+    <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>class</name>
+    <l_discription> A class is a 'description' or 'blueprint' for your custom object. It can have any properties or methods you like.</l_discription>
+    <description>A class is a construct that enables you to create your own custom types by grouping together variables of other types, methods and events. A class is like a blueprint. It defines the data and behavior of a type. If the class is not declared as static, client code can use it by creating objects or instances which are assigned to a variable. The variable remains in memory until all references to it go out of scope. At that time, the CLR marks it as eligible for garbage collection. If the class is declared as static, then only one copy exists in memory and client code can only access it through the class itself, not an instance variable </description>
+    <Example>public class User{
+      public String FullName {get;set;}
+      public int Age {get;set;}
+};</Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/x9afc042.aspx</help_link>
+    <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>for</name>
+    <l_discription>That's a keyword to start a loop that can run some lines of code as many times as you like.</l_discription>
+    <description>By using a for loop, you can run a statement or a block of statements repeatedly until a specified expression evaluates to false. This kind of loop is useful for iterating over arrays and for other applications in which you know in advance how many times you want the loop to iterate. </description>
+    <Example>for(int initialNumber = 0; initialNumber &lt; 5; initialNumber++;){
+    System.out.println("I will keep printing this message and increasing the 'initialNumber' until it becomes equal to 5");
+    }</Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/ch45axte.aspx</help_link>
+    <sourceCodefileexapmle>For Loop</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>while</name>
+    <l_discription>That's a keyword to start a type of loop, where a piece of code can be executed repeatedly, as long as a condition is met.</l_discription>
+    <description>The while statement executes a statement or a block of statements until a specified expression evaluates to false.  </description>
+    <Example>int numberOfPeople=5;
+while(numberOfPeople &gt; 0){
+    System.out.println("I will keep saying 'Goodbye' until there are no more people and 'numberOfPeople' becomes 0");
+    i++;
+}</Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/2aeyhxcd.aspx</help_link>
+    <sourceCodefileexapmle>while loop</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+  <name>main</name>
+  <l_discription>That's where your program begins and it's a must-have method for all Java programs. Main can only can return int or void.</l_discription>
+  <description>the application must contain a single Main method specifying where program execution is to begin.Main can only return int or void </description>
+  <Example>NA</Example>
+  <help_link>https://msdn.microsoft.com/en-us/library/ms228506%28v=vs.90%29.aspx</help_link>
+  <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+  <keyword>
+    <name>println</name>
+    <l_discription>This method can display any message to the user.</l_discription>
+    <description>the application must contain a single Main method specifying where program execution is to begin.Main can only return int or void </description>
+    <Example> System.out.println("Hi, how are you?");</Example>
+    <help_link>https://msdn.microsoft.com/en-us/library/ms228506%28v=vs.90%29.aspx</help_link>
+    <sourceCodefileexapmle>Variables declaration class</sourceCodefileexapmle>
+  </keyword>
+</keywords>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<ruleset name="Loops"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+Ruleset for finding loops.
+	</description>
+
+
+	<rule name="ForLoop"
+    	  language="java"
+    	  since="1.0"
+          message="Found a for loop"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#JumbledIncrementer">
+		<description>
+looks for a for loop.		</description>
+		<priority>6</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//ForStatement
+
+ ]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+
+	<rule name="WhileLoop"
+    	  language="java"
+    	  since="1.0"
+          message="Found a while loop"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#JumbledIncrementer">
+		<description>
+looks for a while loop		</description>
+		<priority>6</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//WhileStatement
+
+ ]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+
+	<rule name="DoWhileLoop"
+    	  language="java"
+    	  since="1.0"
+          message="Found a do while loop"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#JumbledIncrementer">
+		<description>
+Looks for a do while loop.		</description>
+		<priority>6</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//DoStatement
+
+ ]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

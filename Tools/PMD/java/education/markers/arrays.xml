@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+
+<ruleset name="Arrays"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+This ruleset contains rules regarding arrays, including methods that return null rather than an empty array, not using array as list, and not using system array copy (instead looping through and copying values).
+	</description>
+
+	<rule	name="ReturnEmptyArrayRatherThanNull"
+   		language="java"
+         since="4.2"
+        	class="net.sourceforge.pmd.lang.rule.XPathRule"
+        	message="Return an empty array rather than 'null'."
+        	externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#ReturnEmptyArrayRatherThanNull">
+		<description>
+For any method that returns an array, it is a better to return an empty array rather than a 
+null reference. This removes the need for null checking all results and avoids inadvertent
+NullPointerExceptions.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+                        //MethodDeclaration
+                        [
+                        (./ResultType/Type[@Array='true'])
+                        and
+                        (./Block/BlockStatement/Statement/ReturnStatement/Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral)
+                        ]
+                    ]]>
+				</value>
+			</property>
+		</properties>
+		<example><![CDATA[
+public class Example {
+    // Not a good idea...
+    public int[] badBehavior() {
+                   // ...
+        return null;
+    }
+
+    // Good behavior
+    public String[] bonnePratique() {
+      //...
+     return new String[0];
+    }
+}
+            ]]></example>
+	</rule>
+
+	<rule name="UseArraysAsList"
+   		language="java"
+     since="3.5"
+     message="Use asList instead of tight loops"
+      class="net.sourceforge.pmd.lang.rule.XPathRule"
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/optimizations.html#UseArraysAsList">
+		<description>
+The java.util.Arrays class has a "asList" method that should be used when you want to create a new List from
+an array of objects. It is faster than executing a loop to copy all the elements of the array one by one.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Statement[
+    (ForStatement) and (ForStatement//VariableInitializer//Literal[@IntLiteral='true' and @Image='0']) and (count(.//IfStatement)=0)
+   ]
+   //StatementExpression[
+    PrimaryExpression/PrimaryPrefix/Name[
+     substring-before(@Image,'.add') = ancestor::MethodDeclaration//LocalVariableDeclaration[
+      ./Type//ClassOrInterfaceType[
+       @Image = 'Collection' or 
+       @Image = 'List' or @Image='ArrayList'
+      ]
+     ]
+     /VariableDeclarator/VariableDeclaratorId[
+      count(..//AllocationExpression/ClassOrInterfaceType[
+       @Image="ArrayList"
+      ]
+      )=1
+     ]/@Image
+    ]
+   and
+   PrimaryExpression/PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Name
+   [
+     @Image = ancestor::MethodDeclaration//LocalVariableDeclaration[@Array="true"]/VariableDeclarator/VariableDeclaratorId/@Image
+     or
+     @Image = ancestor::MethodDeclaration//FormalParameter/VariableDeclaratorId/@Image
+   ]
+   /../..[count(.//PrimarySuffix)
+   =1]/PrimarySuffix/Expression/PrimaryExpression/PrimaryPrefix
+   /Name
+   ]
+   ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Test {
+  public void foo(Integer[] ints) {
+    // could just use Arrays.asList(ints)
+     List l= new ArrayList(10);
+     for (int i=0; i< 100; i++) {
+       l.add(ints[i]);
+     }
+     for (int i=0; i< 100; i++) {
+       l.add(a[i].toString()); // won't trigger the rule
+     }
+  }
+}
+   ]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidArrayLoops"
+   		language="java"
+      since="3.5"
+      message="System.arraycopy is more efficient"
+      class="net.sourceforge.pmd.lang.rule.XPathRule"
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/optimizations.html#AvoidArrayLoops">
+		<description>
+Instead of manually copying data between two arrays, use the efficient System.arraycopy method instead.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Statement[(ForStatement or WhileStatement) and
+count(*//AssignmentOperator[@Image = '='])=1
+and
+*/Statement
+[
+./Block/BlockStatement/Statement/StatementExpression/PrimaryExpression
+/PrimaryPrefix/Name/../../PrimarySuffix/Expression
+[(PrimaryExpression or AdditiveExpression) and count
+(.//PrimaryPrefix/Name)=1]//PrimaryPrefix/Name/@Image
+and
+./Block/BlockStatement/Statement/StatementExpression/Expression/PrimaryExpression
+/PrimaryPrefix/Name/../../PrimarySuffix[count
+(..//PrimarySuffix)=1]/Expression[(PrimaryExpression
+or AdditiveExpression) and count(.//PrimaryPrefix/Name)=1]
+//PrimaryPrefix/Name/@Image
+]]
+    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Test {
+  public void bar() {
+    int[] a = new int[10];
+    int[] b = new int[10];
+    for (int i=0;i<10;i++) {
+      b[i]=a[i];
+    }
+  }
+}
+     // this will trigger the rule
+     for (int i=0;i<10;i++) {
+       b[i]=a[c[i]];
+     }
+
+  }
+}
+    ]]>
+		</example>
+	</rule>
+</ruleset>

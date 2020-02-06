@@ -1,0 +1,15 @@
+This is a binary distribution of Jlint 3.0 for Windows.
+
+Contents:
+
+antic.exe    - check Java source code for bugs
+jlint.exe    - check Java class files for bugs (more sophisticated)
+manual.pdf   - documentation for AntiC and Jlint
+README       - main README file for Jlint
+README.bin   - this file
+COPYING      - software license
+
+The source code can be downloaded from the Jlint website
+at
+
+  http://jlint.sourceforge.net/

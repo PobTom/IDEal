@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <d0>Hi! So what does your program need to do?
+Talk me through - step by step.</d0>
+  <d1>And how does your code look like?
+Tell me what happens in each line.</d1>
+  <d2>Which bit doesn't work?
+Tell me what it's supposed to do and why you think it SHOULD work?</d2>
+<d3>I hope that things have cleared up a bit now!
+If you still can't figure it out - try other help options!
+Good duck... I mean: luck! :)</d3>
+</config>

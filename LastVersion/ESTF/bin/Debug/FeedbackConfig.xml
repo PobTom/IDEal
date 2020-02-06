@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config><AbstractClassWithoutAbstractMethod>Tu Olenstwo sobie spisuje wiadomosc, jak nie wpisze to bedzie defaultowa desu</AbstractClassWithoutAbstractMethod>
+<AccessorClassGeneration>ciekawe czy 
+enter dziala
+lol</AccessorClassGeneration>
+<AccessorMethodGeneration></AccessorMethodGeneration>
+<ArrayIsStoredDirectly></ArrayIsStoredDirectly>
+<AvoidPrintStackTrace></AvoidPrintStackTrace>
+<AvoidReassigningLoopVariables></AvoidReassigningLoopVariables>
+<AvoidReassigningParameters></AvoidReassigningParameters>
+<AvoidStringBufferField></AvoidStringBufferField>
+<AvoidUsingHardCodedIP></AvoidUsingHardCodedIP>
+<CheckResultSet></CheckResultSet>
+<ConstantsInInterface></ConstantsInInterface>
+<DefaultLabelNotLastInSwitchStmt></DefaultLabelNotLastInSwitchStmt>
+<ForLoopCanBeForeach></ForLoopCanBeForeach>
+<ForLoopVariableCount></ForLoopVariableCount>
+<GuardLogStatement></GuardLogStatement>
+<JUnitSuitesShouldUseSuiteAnnotation></JUnitSuitesShouldUseSuiteAnnotation>
+<JUnitTestShouldUseAfterAnnotation></JUnitTestShouldUseAfterAnnotation>
+<JUnitTestShouldUseBeforeAnnotation></JUnitTestShouldUseBeforeAnnotation>
+<JUnitTestShouldUseTestAnnotation></JUnitTestShouldUseTestAnnotation>
+<JUnitAssertionsShouldIncludeMessage></JUnitAssertionsShouldIncludeMessage>
+<JUnitTestContainsTooManyAsserts></JUnitTestContainsTooManyAsserts>
+<JUnitTestsShouldIncludeAssert></JUnitTestsShouldIncludeAssert>
+<JUnitUseExpected></JUnitUseExpected>
+<LooseCoupling></LooseCoupling>
+<MethodReturnsInternalArray></MethodReturnsInternalArray>
+<MissingOverride></MissingOverride>
+<OneDeclarationPer></OneDeclarationPer>
+<PositionLiteralsFirstInCaseInsensitiveComparisons></PositionLiteralsFirstInCaseInsensitiveComparisons>
+<PositionLiteralsFirstInComparisons></PositionLiteralsFirstInComparisons>
+<PreserveStackTrace></PreserveStackTrace>
+<ReplaceEnumerationWithIterator></ReplaceEnumerationWithIterator>
+<ReplaceHashtableWithMap></ReplaceHashtableWithMap>
+<ReplaceVectorWithList></ReplaceVectorWithList>
+<SwitchStmtsShouldHaveDefault></SwitchStmtsShouldHaveDefault>
+<SystemPrintln></SystemPrintln>
+<UnusedFormalParameter></UnusedFormalParameter>
+<UnusedImports></UnusedImports>
+<UnusedLocalVariable></UnusedLocalVariable>
+<UnusedPrivateField></UnusedPrivateField>
+<UnusedPrivateMethod></UnusedPrivateMethod>
+<UseAssertEqualsInsteadOfAssertTrue></UseAssertEqualsInsteadOfAssertTrue>
+<UseAssertNullInsteadOfAssertTrue></UseAssertNullInsteadOfAssertTrue>
+<UseAssertSameInsteadOfAssertTrue></UseAssertSameInsteadOfAssertTrue>
+<UseAssertTrueInsteadOfAssertEquals></UseAssertTrueInsteadOfAssertEquals>
+<UseCollectionIsEmpty></UseCollectionIsEmpty>
+<UseTryWithResources></UseTryWithResources>
+<UseVarargs></UseVarargs>
+<WhileLoopWithLiteralBoolean></WhileLoopWithLiteralBoolean>
+
+</config>

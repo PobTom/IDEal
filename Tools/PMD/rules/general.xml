@@ -1,0 +1,1147 @@
+<?xml version="1.0"?>
+
+<ruleset name="General"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+		This rulset contains "general" rules which are not require specific structures.
+	</description>
+
+	
+	<rule name="BrokenNullCheck"
+          since="3.8"
+          message="Method call on object which may be null"
+          class="net.sourceforge.pmd.lang.java.rule.basic.BrokenNullCheckRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#BrokenNullCheck">
+		<description>
+The null check is broken since it will throw a NullPointerException itself.
+It is likely that you used || instead of &amp;&amp; or vice versa.
+		</description>
+		<priority>6</priority>
+		<example>
+			<![CDATA[
+public String bar(String string) {
+  // should be &&
+	if (string!=null || !string.equals(""))
+		return string;
+  // should be ||
+	if (string==null && string.equals(""))
+		return string;
+}
+        ]]>
+		</example>
+	</rule>
+
+
+	<rule name="AvoidMultipleUnaryOperators"
+		  since="4.2"
+		  class="net.sourceforge.pmd.lang.java.rule.basic.AvoidMultipleUnaryOperatorsRule"
+		  message="Using multiple unary operators may be a bug, and/or is confusing."
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#AvoidMultipleUnaryOperators">
+		<description>
+			<![CDATA[
+The use of multiple unary operators may be problematic, and/or confusing.
+Ensure that the intended usage is not a bug, or consider simplifying the expression.
+            ]]>
+		</description>
+		<priority>6</priority>
+		<example>
+			<![CDATA[
+// These are typo bugs, or at best needlessly complex and confusing:
+int i = - -1;
+int j = + - +1;
+int z = ~~2;
+boolean b = !!true;
+boolean c = !!!true;
+
+// These are better:
+int i = 1;
+int j = -1;
+int z = 2;
+boolean b = true;
+boolean c = false;
+
+// And these just make your brain hurt:
+int i = ~-2;
+int j = -~7;
+            ]]>
+		</example>
+	</rule>
+
+
+
+	<rule name="ExcessivePublicCount"
+    since="1.04"
+    message="This class has a bunch of public methods and attributes"
+    class="net.sourceforge.pmd.lang.java.rule.codesize.ExcessivePublicCountRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/codesize.html#ExcessivePublicCount">
+		<description>
+Classes with large numbers of public methods and attributes require disproportionate testing efforts
+since combinational side effects grow rapidly and increase risk. Refactoring these classes into
+smaller ones not only increases testability and reliability but also allows new variations to be
+developed easily.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+	public String value;
+	public Bar something;
+	public Variable var;
+ // [... more more public attributes ...]
+ 
+	public void doWork() {}
+	public void doMoreWork() {}
+	public void doWorkAgain() {}
+ // [... more more public methods ...]
+}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="TooManyFields"
+    		 since="3.0"
+          message="Too many fields"
+          class="net.sourceforge.pmd.lang.java.rule.codesize.TooManyFieldsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/codesize.html#TooManyFields">
+		<description>
+Classes that have too many fields can become unwieldy and could be redesigned to have fewer fields,
+possibly through grouping related fields in new objects.  For example, a class with individual 
+city/state/zip fields could park them within a single Address field.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Person {	// too many separate fields
+   int birthYear;
+   int birthMonth;
+   int birthDate;
+   float height;
+   float weight;
+}
+
+public class Person {	// this is more manageable
+   Date birthDate;
+   BodyMeasurements measurements;
+}
+   ]]>
+		</example>
+	</rule>
+<!--
+	<rule name="NcssMethodCount" message="The method {0}() has an NCSS line count of {1}"
+   since="3.9"
+   class="net.sourceforge.pmd.lang.java.rule.codesize.NcssMethodCountRule"
+   externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/codesize.html#NcssMethodCount">
+		<description>
+This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines
+of code for a given method. NCSS ignores comments, and counts actual statements. Using this algorithm,
+lines of code that are split are counted as one.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public class Foo extends Bar {
+ public int methd() {
+     super.methd();
+
+
+
+
+
+ //this method only has 1 NCSS lines
+      return 1;
+ }
+}
+]]>
+		</example>
+	</rule>
+-->
+<!--
+	<rule name="CommentSize"
+    		  since="5.0"
+        message="Comment is too large"
+        class="net.sourceforge.pmd.lang.java.rule.comments.CommentSizeRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/comments.html#CommentSize">
+		<description>
+Determines whether the dimensions of non-header comments found are within the specified limits.
+		</description>
+		<priority>5</priority>
+		<example>
+			<![CDATA[
+/**
+*
+*	too many lines!
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*/
+]]>
+		</example>
+	</rule>
+-->
+	<rule name="CommentContent"
+    		  since="5.0"
+     message="Invalid words or phrases found"
+     class="net.sourceforge.pmd.lang.java.rule.comments.CommentContentRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/comments.html#CommentContent">
+		<description>
+A rule for the politically correct... we don't want to offend anyone.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+//	OMG, this is horrible, Bob is an idiot !!!
+      ]]>
+		</example>
+	</rule>
+
+	<rule name="NullAssignment"
+         since="1.02"
+          message="Assigning an Object to null is a code smell.  Consider refactoring."
+          class="net.sourceforge.pmd.lang.java.rule.controversial.NullAssignmentRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/controversial.html#NullAssignment">
+		<description>
+Assigning a "null" to a variable (outside of its declaration) is usually bad form.  Sometimes, this type
+of assignment is an indication that the programmer doesn't completely understand what is going on in the code.
+
+NOTE: This sort of assignment may used in some cases to dereference objects and encourage garbage collection.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public void bar() {
+  Object x = null; // this is OK
+  x = new Object();
+     // big, complex piece of code here
+  x = null; // this is not required
+     // big, complex piece of code here
+}
+
+ ]]>
+		</example>
+	</rule>
+
+
+	<rule 	name="AvoidFinalLocalVariable"
+       language="java"
+        since="4.1"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          message="Avoid using final local variables, turn them into fields"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/controversial.html#AvoidFinalLocalVariable">
+		<description><![CDATA[
+Avoid using final local variables, turn them into fields.
+         ]]></description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value><![CDATA[
+//LocalVariableDeclaration[
+  @Final = 'true'
+  and not(../../ForStatement)
+  and
+  (
+    (count(VariableDeclarator/VariableInitializer) = 0)
+    or
+    (VariableDeclarator/VariableInitializer/Expression/PrimaryExpression/PrimaryPrefix/Literal)
+  )
+]
+      ]]></value>
+			</property>
+		</properties>
+		<example><![CDATA[
+public class MyClass {
+    public void foo() {
+        final String finalLocalVariable;
+    }
+}
+       ]]></example>
+	</rule>
+
+	<rule
+        name="OneDeclarationPerLine"
+       language="java"
+        since="5.0"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+        message="Use one line for each declaration, it enhances code readability."
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/controversial.html#OneDeclarationPerLine">
+		<description>
+			<![CDATA[
+Java allows the use of several variables declaration of the same type on one line. However, it
+can lead to quite messy code. This rule looks for several declarations on the same line.
+            ]]>
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//LocalVariableDeclaration[count(VariableDeclarator) > 1]
+                    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+String name; 			// separate declarations
+String lastname;
+
+String name, lastname;	// combined declaration, a violation
+          ]]>
+		</example>
+	</rule>
+
+	<rule name="CloseResource"
+  		  since="1.2.2"
+        message="Ensure that resources like this {0} object are closed after use"
+        class="net.sourceforge.pmd.lang.java.rule.design.CloseResourceRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#CloseResource">
+		<description>
+Ensure that resources (like Connection, Statement, and ResultSet objects) are always closed after use.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Bar {
+  public void foo() {
+    Connection c = pool.getConnection();
+    try {
+      // do stuff
+    } catch (SQLException ex) {
+     // handle exception
+    } finally {
+      // oops, should close the connection using 'close'!
+      // c.close();
+    }
+  }
+}
+]]>
+		</example>
+	</rule>
+
+
+	<rule name="EqualsNull"
+   		language="java"
+    			since="1.9"
+            message="Avoid using equals() to compare against null"
+            class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#EqualsNull">
+		<description>
+Tests for null should not use the equals() method. The '==' operator should be used instead.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//PrimaryExpression
+  [
+    PrimaryPrefix[Name[ends-with(@Image, 'equals')]]
+      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]
+          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]
+
+    or
+
+    PrimarySuffix[ends-with(@Image, 'equals')]
+      [following-sibling::node()/Arguments/ArgumentList[count(Expression)=1]
+          /Expression/PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]
+
+  ]
+    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+String x = "foo";
+
+if (x.equals(null)) { // bad form
+   	doSomething();
+	}
+	
+if (x == null) { 	// preferred
+   	doSomething();
+	}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="IdempotentOperations"
+    		 since="2.0"
+          message="Avoid idempotent operations (like assigning a variable to itself)."
+          class="net.sourceforge.pmd.lang.java.rule.design.IdempotentOperationsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#IdempotentOperations">
+		<description>
+Avoid idempotent operations - they have no effect.
+		</description>
+		<priority>8</priority>
+
+		<example>
+			<![CDATA[
+public class Foo {
+ public void bar() {
+  int x = 2;
+  x = x;
+ }
+}
+      ]]>
+		</example>
+	</rule>
+
+	<rule name="SimplifyConditional"
+   		language="java"
+    		 since="3.1"
+              message="No need to check for null before an instanceof"
+              class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#SimplifyConditional">
+		<description>
+No need to check for null before an instanceof; the instanceof keyword returns false when given a null argument.
+		</description>
+		<priority>6</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Expression
+ [ConditionalOrExpression
+ [EqualityExpression[@Image='==']
+  //NullLiteral
+  and
+  UnaryExpressionNotPlusMinus
+   [@Image='!']//InstanceOfExpression[PrimaryExpression
+     //Name/@Image = ancestor::ConditionalOrExpression/EqualityExpression
+      /PrimaryExpression/PrimaryPrefix/Name/@Image]
+  and
+  (count(UnaryExpressionNotPlusMinus) + 1 = count(*))
+ ]
+or
+ConditionalAndExpression
+ [EqualityExpression[@Image='!=']//NullLiteral
+ and
+InstanceOfExpression
+ [PrimaryExpression[count(PrimarySuffix[@ArrayDereference='true'])=0]
+  //Name[not(contains(@Image,'.'))]/@Image = ancestor::ConditionalAndExpression
+   /EqualityExpression/PrimaryExpression/PrimaryPrefix/Name/@Image]
+ and
+(count(InstanceOfExpression) + 1 = count(*))
+ ]
+]
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+class Foo {
+  void bar(Object x) {
+    if (x != null && x instanceof Bar) {
+      // just drop the "x != null" check
+    }
+  }
+}      ]]>
+		</example>
+	</rule>
+
+	<rule  name="CompareObjectsWithEquals"
+  since="3.2"
+  message="Use equals() to compare object references."
+  class="net.sourceforge.pmd.lang.java.rule.design.CompareObjectsWithEqualsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#CompareObjectsWithEquals">
+		<description>
+Use equals() to compare object references; avoid comparing them with ==.
+		</description>
+		<priority>9</priority>
+		<example>
+			<![CDATA[
+class Foo {
+  boolean bar(String a, String b) {
+    return a == b;
+  }
+}
+
+]]>
+		</example>
+	</rule>
+
+	<rule name="FieldDeclarationsShouldBeAtStartOfClass"
+      language="java"
+      since="5.0"
+      message="Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes."
+      class="net.sourceforge.pmd.lang.rule.XPathRule"
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass">
+		<description>
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration
+ [count(../preceding-sibling::ClassOrInterfaceBodyDeclaration/child::*[1]
+   [name() != 'FieldDeclaration' and name() != 'Annotation' and
+       (name() != 'EnumDeclaration' or $ignoreEnumDeclarations = 'false')]) > 0]
+          ]]>
+				</value>
+			</property>
+			<property name="ignoreEnumDeclarations" description="Ignore Enum Declarations that precede fields." type="Boolean" value="true"/>
+		</properties>
+		<example>
+			<![CDATA[
+public class HelloWorldBean {
+
+  // Field declared before methods / inner classes - OK
+  private String _thing;
+
+  public String getMessage() {
+    return "Hello World!";
+  }
+
+  // Field declared after methods / inner classes - avoid this
+  private String _fieldInWrongLocation;
+}
+      ]]>
+		</example>
+	</rule>
+
+	<rule name="EmptySynchronizedBlock"
+    		 language="java"
+    		 since="1.3"
+          message="Avoid empty synchronized blocks"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptySynchronizedBlock">
+		<description>
+Empty synchronized blocks serve no purpose and should be removed.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SynchronizedStatement/Block[1][count(*) = 0]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+ public void bar() {
+  synchronized (this) {
+   // empty!
+  }
+ }
+}
+]]>
+		</example>
+	</rule>
+
+	<rule 	name="EmptyInitializer"
+		    language="java"
+	  		since="5.0"   	
+          	message="Empty initializer was found"
+          	class="net.sourceforge.pmd.lang.rule.XPathRule"
+          	externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyInitializer">
+		<description>
+Empty initializers serve no purpose and should be removed.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Initializer/Block[count(*)=0]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+
+   static {} // Why ?
+
+   {} // Again, why ?
+
+}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="EmptyStatementBlock"
+        language="java"
+        since="5.0"
+        message="Avoid empty block statements."
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+	externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyStatementBlock">
+		<description>
+Empty block statements serve no purpose and should be removed.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//BlockStatement/Statement/Block[count(*) = 0]
+          ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+
+   private int _bar;
+
+   public void setBar(int bar) {
+      { _bar = bar; } // Why not?
+      {} // But remove this.
+   }
+
+}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="EmptyStaticInitializer"
+    		 language="java"
+    		  since="1.5"
+           message="Empty static initializer was found"
+           class="net.sourceforge.pmd.lang.rule.XPathRule"
+           externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyStaticInitializer">
+		<description>
+An empty static initializer serve no purpose and should be removed.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Initializer[@Static='true']/Block[count(*)=0]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+	static {
+	// empty
+	}
+}
+]]>
+		</example>
+	</rule>
+
+
+	<rule	name="UnnecessaryFullyQualifiedName"
+   		language="java"
+	      since="5.0"
+        	class="net.sourceforge.pmd.lang.java.rule.imports.UnnecessaryFullyQualifiedNameRule"
+        	message="Unnecessary use of fully qualified name ''{0}'' due to existing import ''{1}''"
+       		externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/imports.html#UnnecessaryFullyQualifiedName">
+		<description><![CDATA[
+Import statements allow the use of non-fully qualified names.  The use of a fully qualified name
+which is covered by an import statement is redundant.  Consider using the non-fully qualified name.
+		 ]]></description>
+		<priority>6</priority>
+		<example><![CDATA[
+import java.util.List;
+
+public class Foo {
+   private java.util.List list1; // Unnecessary FQN
+   private List list2; // More appropriate given import of 'java.util.List'
+}
+		  ]]></example>
+	</rule>
+
+	<rule name="ShortVariable"
+   		language="java"
+  		  since="0.3"
+        message="Avoid variables with short names like {0}"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#ShortVariable">
+		<description>
+Fields, local variables, or parameter names that are very short are not helpful to the reader.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//VariableDeclaratorId[string-length(@Image) < 3]
+ [not(ancestor::ForInit)]
+ [not(../../VariableDeclarator and ../../../LocalVariableDeclaration and ../../../../ForStatement)]
+ [not((ancestor::FormalParameter) and (ancestor::TryStatement))]
+                  ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Something {
+    private int q = 15;                         // field - too short
+    public static void main( String as[] ) {    // formal arg - too short
+        int r = 20 + q;                         // local var - too short
+        for (int i = 0; i < 10; i++) {          // not a violation (inside 'for' loop)
+            r += q;
+        }
+        for (Integer i : numbers) {             // not a violation (inside 'for-each' loop)
+            r += q;
+        }
+    }
+}
+]]>
+		</example>
+	</rule>
+
+	<!--
+	<rule name="LongVariable"
+   		language="java"
+  		  since="0.3"
+        message="Avoid excessively long variable names like {0}"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#LongVariable">
+		<description>
+Fields, formal arguments, or local variable names that are too long can make the code difficult to follow.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="minimum" type="Integer" description="The variable length reporting threshold" min="1" max="100" value="24"/>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//VariableDeclaratorId[string-length(@Image) > $minimum]
+                  ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Something {
+	int reallyLongIntName = -3;  			// VIOLATION - Field
+	public static void main( String argumentsList[] ) { // VIOLATION - Formal
+		int otherReallyLongName = -5; 		// VIOLATION - Local
+		for (int interestingIntIndex = 0;	// VIOLATION - For
+             interestingIntIndex < 10;
+             interestingIntIndex ++ ) {
+    }
+}
+]]>
+		</example>
+	</rule>
+	-->
+
+	<rule name="VariableNamingConventions"
+    since="1.2"
+    message="{0} variable {1} should begin with {2}"
+    class="net.sourceforge.pmd.lang.java.rule.naming.VariableNamingConventionsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#VariableNamingConventions">
+		<description>
+A variable naming conventions rule - customize this to your liking.  Currently, it
+checks for final variables that should be fully capitalized and non-final variables
+that should not include underscores.
+		</description>
+		<priority>9</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+   public static final int MY_NUM = 0;
+   public String myTest = "";
+   DataModule dmTest = new DataModule();
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidDollarSigns"
+    		  since="1.5"
+           message="Avoid using dollar signs in variable/method/class/interface names"
+           class="net.sourceforge.pmd.lang.java.rule.naming.AvoidDollarSignsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#AvoidDollarSigns">
+		<description>
+Avoid using dollar signs in variable/method/class/interface names.
+		</description>
+		<priority>9</priority>
+		<example>
+			<![CDATA[
+public class Fo$o {  // not a recommended name
+}
+   ]]>
+		</example>
+	</rule>
+
+	<rule name="MethodWithSameNameAsEnclosingClass"
+    		 since="1.5"
+          message="Classes should not have non-constructor methods with the same name as the class"
+          class="net.sourceforge.pmd.lang.java.rule.naming.MethodWithSameNameAsEnclosingClassRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#MethodWithSameNameAsEnclosingClass">
+		<description>
+Non-constructor methods should not have the same name as the enclosing class.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public class MyClass {
+
+	public MyClass() {}			// this is OK because it is a constructor
+	
+	public void MyClass() {}	// this is bad because it is a method
+}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="SuspiciousHashcodeMethodName"
+    		 since="1.5"
+          message="The method name and return type are suspiciously close to hashCode()"
+          class="net.sourceforge.pmd.lang.java.rule.naming.SuspiciousHashcodeMethodNameRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#SuspiciousHashcodeMethodName">
+		<description>
+The method name and return type are suspiciously close to hashCode(), which may denote an intention
+to override the hashCode() method.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+	public int hashcode() {	// oops, this probably was supposed to be 'hashCode'
+	
+	}
+}
+    ]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidFieldNameMatchingTypeName"
+          since="3.0"
+          message="It is somewhat confusing to have a field name matching the declaring class name"
+          class="net.sourceforge.pmd.lang.java.rule.naming.AvoidFieldNameMatchingTypeNameRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#AvoidFieldNameMatchingTypeName">
+		<description>
+It is somewhat confusing to have a field name matching the declaring class name.
+This probably means that type and/or field names should be chosen more carefully.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public class Foo extends Bar {
+	int foo;	// There is probably a better name that can be used
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidFieldNameMatchingMethodName"
+    	  since="3.0"
+          message="Field {0} has the same name as a method"
+          class="net.sourceforge.pmd.lang.java.rule.naming.AvoidFieldNameMatchingMethodNameRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#AvoidFieldNameMatchingMethodName">
+		<description>
+It can be confusing to have a field name with the same name as a method. While this is permitted, 
+having information (field) and actions (method) is not clear naming. Developers versed in 
+Smalltalk often prefer this approach as the methods denote accessor methods.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+	Object bar;
+	// bar is data or an action or both?
+	void bar() {
+	}
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="MisleadingVariableName"
+   		language="java"
+          since="3.4"
+          message="Avoid naming non-fields with the prefix 'm_'"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#MisleadingVariableName">
+		<description>
+Detects when a non-field has a name starting with 'm_'.  This usually denotes a field and could be confusing.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//VariableDeclaratorId
+[starts-with(@Image, 'm_')]
+[not (../../../FieldDeclaration)]
+                    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+    private int m_foo; // OK
+    public void bar(String m_baz) {  // Bad
+      int m_boz = 42; // Bad
+    }
+}
+  ]]>
+		</example>
+	</rule>
+
+	<rule name="UnusedNullCheckInEquals"
+    		 language="java"
+        since="3.5"
+        message="Invoke equals() on the object you''ve already ensured is not null"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/unnecessary.html#UnusedNullCheckInEquals">
+		<description>
+After checking an object reference for null, you should invoke equals() on that object rather than passing it to another object's equals() method.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+(//PrimaryPrefix[ends-with(Name/@Image, '.equals') and Name/@Image != 'Arrays.equals'] | //PrimarySuffix[@Image='equals' and not(../PrimaryPrefix/Literal)])
+ /following-sibling::PrimarySuffix/Arguments/ArgumentList/Expression
+ /PrimaryExpression[count(PrimarySuffix)=0]/PrimaryPrefix
+ /Name[@Image = ./../../../../../../../../../../Expression/ConditionalAndExpression
+ /EqualityExpression[@Image="!=" and count(./preceding-sibling::*)=0 and
+ ./PrimaryExpression/PrimaryPrefix/Literal/NullLiteral]
+  /PrimaryExpression/PrimaryPrefix/Name/@Image]
+        ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Test {
+
+  public String method1() { return "ok";}
+  public String method2() { return null;}
+
+  public void method(String a) {
+    String b;
+	// I don't know it method1() can be "null"
+	// but I know "a" is not null..
+	// I'd better write a.equals(method1())
+	
+	if (a!=null && method1().equals(a)) { // will trigger the rule
+	//whatever
+	}
+	
+	if (method1().equals(a) && a != null) { // won't trigger the rule
+	//whatever
+	}
+	
+	if (a!=null && method1().equals(b)) { // won't trigger the rule
+	//whatever
+	}
+	
+	if (a!=null && "LITERAL".equals(a)) { // won't trigger the rule
+	//whatever
+	}
+	
+	if (a!=null && !a.equals("go")) { // won't trigger the rule
+	a=method2();
+	if (method1().equals(a)) {
+	//whatever
+	}
+  }
+}
+}
+				]]>
+		</example>
+	</rule>
+
+	<!--
+	<rule name="UselessParentheses"
+  		language="java"
+        since="5.0"
+        message="Useless parentheses."
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/unnecessary.html#UselessParentheses">
+		<description>Useless parentheses should be removed.</description>
+		<priority>7</priority> 
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Expression/PrimaryExpression/PrimaryPrefix/Expression[count(*)=1 and count(./CastExpression)=0 and count(./ConditionalExpression[@Ternary='true'])=0]
+|
+//Expression/ConditionalAndExpression/PrimaryExpression/PrimaryPrefix/Expression[
+    count(*)=1 and
+    count(./CastExpression)=0 and
+    count(./EqualityExpression/MultiplicativeExpression)=0 and
+    count(./ConditionalOrExpression)=0]
+|
+//Expression/ConditionalOrExpression/PrimaryExpression/PrimaryPrefix/Expression[
+    count(*)=1 and
+    count(./CastExpression)=0 and
+    count(./EqualityExpression/MultiplicativeExpression)=0]
+|
+//Expression/ConditionalExpression/PrimaryExpression/PrimaryPrefix/Expression[
+    count(*)=1 and
+    count(./CastExpression)=0 and
+    count(./EqualityExpression)=0]
+|
+//Expression/AdditiveExpression[not(./PrimaryExpression/PrimaryPrefix/Literal[@StringLiteral = 'true'])]/PrimaryExpression/PrimaryPrefix/Expression[
+    count(*)=1 and
+    not(./CastExpression) and
+    not(./ConditionalExpression) and
+    not(./ShiftExpression)]
+|
+//Expression/EqualityExpression/PrimaryExpression/PrimaryPrefix/Expression[
+    count(*)=1 and
+    count(./CastExpression)=0 and
+    count(./AndExpression)=0 and
+    count(./InclusiveOrExpression)=0 and
+    count(./ExclusiveOrExpression)=0 and
+    count(./ConditionalAndExpression)=0 and
+    count(./ConditionalOrExpression)=0]
+          ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+
+   private int _bar1;
+   private Integer _bar2;
+
+   public void setBar(int n) {
+      _bar1 = Integer.valueOf((n)); // here
+      _bar2 = (n); // and here
+   }
+
+}
+    ]]>
+		</example>
+	</rule>
+	-->
+<!--
+	<rule name="UnusedPrivateField"
+  		since="0.1"
+        language="java"
+        message="Avoid unused private fields such as ''{0}''."
+        class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedPrivateFieldRule"
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/unusedcode.html#UnusedPrivateField">
+		<description>
+Detects when a private field is declared and/or assigned a value, but not used.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Something {
+  private static int FOO = 2; // Unused
+  private int i = 5; // Unused
+  private int j = 6;
+  public int addOne() {
+    return j++;
+  }
+}
+]]>
+		</example>
+	</rule>
+-->
+<!--
+	<rule name="UnusedLocalVariable"
+        language="java"
+        since="0.1"
+        message="Avoid unused local variables such as ''{0}''."
+        class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedLocalVariableRule"
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/unusedcode.html#UnusedLocalVariable">
+		<description>
+Detects when a local variable is declared and/or assigned, but not used.
+		</description>
+		<priority>7</priority>
+
+		<example>
+			<![CDATA[
+public class Foo {
+	public void doSomething() {
+		int i = 5; // Unused
+	}
+}
+]]>
+		</example>
+	</rule>
+-->
+
+<!--
+	<rule name="UnusedFormalParameter"
+        language="java"
+        since="0.8"
+        message="Avoid unused {0} parameters such as ''{1}''."
+        class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedFormalParameterRule"
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/unusedcode.html#UnusedFormalParameter">
+		<description>
+Avoid passing parameters to methods or constructors without actually referencing them in the method body.
+		</description>
+		<priority>7</priority>
+
+		<example>
+			<![CDATA[
+public class Foo {
+	private void bar(String howdy) {
+	// howdy is not used
+	}
+}
+]]>
+		</example>
+	</rule>
+	-->
+	    <rule name="EmptyStatementNotInLoop"
+    		 language="java"
+    		 since="1.5"
+          message="An empty statement (semicolon) not part of a loop"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyStatementNotInLoop">
+       <description>
+An empty statement (or a semicolon by itself) that is not used as the sole body of a 'for' 
+or 'while' loop is probably a bug.  It could also be a double semicolon, which has no purpose
+and should be removed.
+       </description>
+       <priority>7</priority>
+        <properties>
+            <property name="xpath">
+                <value>
+<![CDATA[
+//EmptyStatement
+ [not(
+       ../../../ForStatement
+       or ../../../WhileStatement
+       or ../../../BlockStatement/ClassOrInterfaceDeclaration
+       or ../../../../../../ForStatement/Statement[1]
+        /Block[1]/BlockStatement[1]/Statement/EmptyStatement
+       or ../../../../../../WhileStatement/Statement[1]
+        /Block[1]/BlockStatement[1]/Statement/EmptyStatement)
+ ]
+]]>
+                </value>
+            </property>
+        </properties>
+       <example>
+<![CDATA[
+public void doit() {
+      // this is probably not what you meant to do
+      ;
+      // the extra semicolon here this is not necessary
+      System.out.println("look at the extra semicolon");;
+}
+]]>
+       </example>
+     </rule>
+
+
+</ruleset>

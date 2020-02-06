@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B594DE2-C2C5-4815-9F54-A92AB259BB17}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ESTF</RootNamespace>
+    <AssemblyName>ESTF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.16.16.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>..\..\..\Eclipse\Lib\ICSharpCode.TextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="RoundButton">
+      <HintPath>C:\Users\Hanan\Desktop\RoundButton\bin\Release\RoundButton.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Trial">
+      <HintPath>C:\Users\Hanan\Desktop\Trial.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationManager.cs" />
+    <Compile Include="CreateClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateClassForm.Designer.cs">
+      <DependentUpon>CreateClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateProject .Designer.cs">
+      <DependentUpon>CreateProject .cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject.cs" />
+    <Compile Include="DuckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuckForm.Designer.cs">
+      <DependentUpon>DuckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailForm.Designer.cs">
+      <DependentUpon>EmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TutorLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TutorLoginForm.Designer.cs">
+      <DependentUpon>TutorLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrjMethodAutocompleteItem.cs" />
+    <Compile Include="ProjectWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectWindow.Designer.cs">
+      <DependentUpon>ProjectWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectEditor.Designer.cs">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingScreen.Designer.cs">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Murtada\BugsDetector\ErrorDetector.cs" />
+    <Compile Include="Murtada\CSharpRunner\CSharpRunner.cs" />
+    <Compile Include="Murtada\JavaCompiler\CodeProcessing.cs" />
+    <Compile Include="Murtada\JavaCompiler\Compiling.cs" />
+    <Compile Include="Murtada\JavaCompiler\ProcessExtension.cs" />
+    <Compile Include="Murtada\JavaCompiler\Running.cs" />
+    <Compile Include="Murtada\PMD\AnalysisXML.cs" />
+    <Compile Include="Murtada\PMD\ImplementPMD.cs" />
+    <Compile Include="Murtada\ProjectConfiguration\JDKConfiguration.cs" />
+    <Compile Include="Murtada\RealTimeCompiling\bugsFinder.cs" />
+    <Compile Include="Murtada\Speechability\Speechability.cs" />
+    <Compile Include="Murtada\StyleChecker\ImplementStyleChecker.cs" />
+    <Compile Include="Murtada\StyleChecker\StyleProcessing.cs" />
+    <Compile Include="OpenNewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="open_file.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Progressform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Progressform.Designer.cs">
+      <DependentUpon>Progressform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSpace.Designer.cs">
+      <DependentUpon>WorkSpace.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CreateClassForm.resx">
+      <DependentUpon>CreateClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateProject .resx">
+      <DependentUpon>CreateProject .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuckForm.resx">
+      <DependentUpon>DuckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailForm.resx">
+      <DependentUpon>EmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TutorLoginForm.resx">
+      <DependentUpon>TutorLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectWindow.resx">
+      <DependentUpon>ProjectWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectEditor.resx">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingScreen.resx">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenNewProject.resx">
+      <DependentUpon>OpenNewProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Progressform.resx">
+      <DependentUpon>Progressform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30%281%29.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30%282%29.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save as.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_all1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coollogo_com-171481509.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WorkSpace.resx">
+      <DependentUpon>WorkSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XMLFile1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="classes.java" />
+    <None Include="Resources\textBubble.jpg" />
+    <None Include="Resources\duck.jpg" />
+    <None Include="Resources\app_window_cross_icon&amp;32.png" />
+    <None Include="Resources\app_window_shell_icon&amp;32.png" />
+    <None Include="Resources\clipboard_copy_icon&amp;32.png" />
+    <None Include="Resources\clipboard_cut_icon&amp;32.png" />
+    <None Include="Resources\clipboard_past_icon&amp;32.png" />
+    <Content Include="DuckConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="methodsAutocompletion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Cover.jpg" />
+    <None Include="Resources\doc_lines_icon&amp;32.png" />
+    <None Include="Resources\doc_new_icon&amp;32.png" />
+    <None Include="Resources\doc_plus_icon&amp;32.png" />
+    <None Include="Resources\folder_open_icon&amp;32.png" />
+    <None Include="Resources\folder_plus_icon&amp;32.png" />
+    <None Include="Resources\globe_2_icon&amp;32.png" />
+    <None Include="Resources\IDEal-icon.ico" />
+    <Content Include="Resources\Logo.png" />
+    <None Include="Resources\logo2.png" />
+    <None Include="Resources\mail_2_icon&amp;32.png" />
+    <None Include="Resources\playback_play_icon&amp;32.png" />
+    <None Include="Resources\playback_stop_icon&amp;32.png" />
+    <None Include="Resources\redo_icon&amp;32.png" />
+    <None Include="Resources\reload_icon&amp;32.png" />
+    <None Include="Resources\rnd_br_next_icon&amp;32.png" />
+    <None Include="Resources\round_plus_icon&amp;32.png" />
+    <None Include="Resources\mail_2_icon&amp;16.png" />
+    <Content Include="Resources\rubber duck.png" />
+    <None Include="Resources\textBubble.png" />
+    <None Include="Resources\save_icon&amp;32.png" />
+    <None Include="Resources\spechbubble_2_icon&amp;32.png" />
+    <None Include="Resources\sq_next_icon&amp;48.png" />
+    <None Include="Resources\sq_plus_icon&amp;32.png" />
+    <None Include="Resources\undo_icon&amp;32.png" />
+    <None Include="Resources\zoom_icon&amp;32.png" />
+    <None Include="Resources\spechbubble_2_icon&amp;16.png" />
+    <None Include="Resources\zoom_icon&amp;16.png" />
+    <None Include="Resources\zoom_icon_23.png" />
+    <Content Include="Resources\save_all_icon&amp;32.png" />
+    <Content Include="Variables_declaration_class.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="packages\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

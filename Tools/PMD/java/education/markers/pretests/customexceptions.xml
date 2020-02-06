@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<ruleset name="CustomExceptions"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+		Found custom exception
+	</description>
+  <rule
+    name="FoundCustomException"
+   		language="java"
+    since="4.0"
+    message="Found a custom exception."
+    class="net.sourceforge.pmd.lang.rule.XPathRule"
+    externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/strictexception.html#DoNotExtendJavaLangError">
+    <description>
+      <![CDATA[
+Errors are system exceptions. Do not extend them.
+      ]]>
+    </description>
+    <priority>3</priority>
+    <properties>
+      <property name="xpath">
+        <value>
+          <![CDATA[
+			//ClassOrInterfaceDeclaration/ExtendsList/ClassOrInterfaceType[@Image="Exception"]
+          ]]>
+        </value>
+      </property>
+    </properties>
+  </rule>
+    <rule
+    name="FoundCustomException2"
+   		language="java"
+    since="4.0"
+    message="Found a custom exception."
+    class="net.sourceforge.pmd.lang.rule.XPathRule"
+    externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/strictexception.html#DoNotExtendJavaLangError">
+    <description>
+      <![CDATA[
+Errors are system exceptions. Do not extend them.
+      ]]>
+    </description>
+    <priority>3</priority>
+    <properties>
+      <property name="xpath">
+        <value>
+          <![CDATA[
+			//ClassOrInterfaceDeclaration/ExtendsList/ClassOrInterfaceType[@Image="Error"]
+          ]]>
+        </value>
+      </property>
+    </properties>
+  </rule>
+</ruleset>

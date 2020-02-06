@@ -1,0 +1,258 @@
+F:\gradution project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+F:\gradution project\ESTF\ESTF\bin\Debug\ESTF.exe
+F:\gradution project\ESTF\ESTF\bin\Debug\ESTF.pdb
+F:\gradution project\ESTF\ESTF\bin\Debug\Trial.exe
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.csprojResolveAssemblyReference.cache
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.Form1.resources
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.csproj.GenerateResource.Cache
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.exe
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.pdb
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.create_Project.resources
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.Est.resources
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.MainWindow.resources
+F:\gradution project\ESTF\ESTF\bin\Debug\RoundButton.dll
+F:\gradution project\ESTF\ESTF\bin\Debug\RoundedTextbox.exe
+F:\gradution project\ESTF\ESTF\bin\Debug\RoundedTextbox.xml
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.Classcreator.resources
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+F:\gradution project\ESTF\ESTF\bin\Debug\ICSharpCode.TextEditor.dll
+F:\gradution project\ESTF\ESTF\bin\Debug\FastColoredTextBox.dll
+F:\gradution project\ESTF\ESTF\bin\Debug\FastColoredTextBox.xml
+F:\gradution project\ESTF\ESTF\bin\Debug\XMLFile1.xml
+F:\gradution project\ESTF\ESTF\obj\Debug\ESTF.Add_lessons.resources
+J:\project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+J:\project\ESTF\ESTF\obj\Debug\ESTF.exe
+J:\project\ESTF\ESTF\obj\Debug\ESTF.pdb
+J:\project\ESTF\ESTF\obj\Debug\ESTF.csprojResolveAssemblyReference.cache
+J:\project\ESTF\ESTF\obj\Debug\ESTF.Add_lessons.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.Classcreator.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.create_Project.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.Est.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.Form1.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.MainWindow.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+J:\project\ESTF\ESTF\obj\Debug\ESTF.csproj.GenerateResource.Cache
+J:\project\ESTF\ESTF\bin\Debug\XMLFile1.xml
+J:\project\ESTF\ESTF\bin\Debug\ESTF.exe
+J:\project\ESTF\ESTF\bin\Debug\ESTF.pdb
+J:\project\ESTF\ESTF\bin\Debug\FastColoredTextBox.xml
+J:\project\ESTF\ESTF\bin\Debug\RoundedTextbox.xml
+G:\project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+G:\project\ESTF\ESTF\obj\Debug\ESTF.exe
+G:\project\ESTF\ESTF\obj\Debug\ESTF.pdb
+I:\project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+I:\project\ESTF\ESTF\obj\Debug\ESTF.exe
+I:\project\ESTF\ESTF\obj\Debug\ESTF.pdb
+F:\gradution project\project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.exe
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.pdb
+F:\gradution project\project\ESTF\ESTF\bin\Debug\XMLFile1.xml
+F:\gradution project\project\ESTF\ESTF\bin\Debug\ESTF.exe
+F:\gradution project\project\ESTF\ESTF\bin\Debug\ESTF.pdb
+F:\gradution project\project\ESTF\ESTF\bin\Debug\RoundButton.dll
+F:\gradution project\project\ESTF\ESTF\bin\Debug\RoundedTextbox.exe
+F:\gradution project\project\ESTF\ESTF\bin\Debug\Trial.exe
+F:\gradution project\project\ESTF\ESTF\bin\Debug\FastColoredTextBox.xml
+F:\gradution project\project\ESTF\ESTF\bin\Debug\RoundedTextbox.xml
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.csprojResolveAssemblyReference.cache
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.Add_lessons.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.Classcreator.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.create_Project.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.Est.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.Form1.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.MainWindow.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+F:\gradution project\project\ESTF\ESTF\obj\Debug\ESTF.csproj.GenerateResource.Cache
+E:\project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+E:\project\ESTF\ESTF\obj\Debug\ESTF.exe
+E:\project\ESTF\ESTF\obj\Debug\ESTF.pdb
+E:\project\ESTF\ESTF\bin\Debug\XMLFile1.xml
+E:\project\ESTF\ESTF\bin\Debug\ESTF.exe
+E:\project\ESTF\ESTF\bin\Debug\ESTF.pdb
+E:\project\ESTF\ESTF\bin\Debug\FastColoredTextBox.xml
+E:\project\ESTF\ESTF\bin\Debug\RoundedTextbox.xml
+E:\project\ESTF\ESTF\obj\Debug\ESTF.csprojResolveAssemblyReference.cache
+E:\project\ESTF\ESTF\obj\Debug\ESTF.Add_lessons.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.Classcreator.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.create_Project.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.Est.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.Form1.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.MainWindow.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+E:\project\ESTF\ESTF\obj\Debug\ESTF.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\bin\Debug\ESTF.exe.config
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.exe
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.pdb
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\bin\Debug\XMLFile1.xml
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\bin\Debug\ESTF.exe
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\bin\Debug\ESTF.pdb
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\bin\Debug\FastColoredTextBox.xml
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\bin\Debug\RoundedTextbox.xml
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Add_lessons.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Classcreator.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.create_Project.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Est.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Form1.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.MainWindow.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.WorkSpace.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.ESTF.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.ESTFchild.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Progressform.resources
+C:\Users\user\Desktop\New folder\project\ESTF\ESTF\obj\Debug\ESTF.Form2.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\bin\Debug\ESTF.exe.config
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.exe
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.pdb
+D:\3th year\Disertation\Project\Last Version\ESTF\bin\Debug\XMLFile1.xml
+D:\3th year\Disertation\Project\Last Version\ESTF\bin\Debug\ESTF.exe
+D:\3th year\Disertation\Project\Last Version\ESTF\bin\Debug\ESTF.pdb
+D:\3th year\Disertation\Project\Last Version\ESTF\bin\Debug\FastColoredTextBox.xml
+D:\3th year\Disertation\Project\Last Version\ESTF\bin\Debug\RoundedTextbox.xml
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.csprojResolveAssemblyReference.cache
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Add_lessons.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Classcreator.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.create_Project.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Est.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.ESTF.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.ESTFchild.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Form1.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Form2.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.MainWindow.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Progressform.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.WorkSpace.resources
+D:\3th year\Disertation\Project\Last Version\ESTF\obj\Debug\ESTF.csproj.GenerateResource.Cache
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\XMLFile1.xml
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\ESTF.exe.config
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\ESTF.exe
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\ESTF.pdb
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\FastColoredTextBox.xml
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\RoundedTextbox.xml
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csprojAssemblyReference.cache
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Add_lessons.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Classcreator.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.create_Project.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Est.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.ESTF.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.ESTFchild.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Form1.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Form2.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.MainWindow.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Progressform.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.WorkSpace.resources
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csproj.GenerateResource.cache
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csproj.CopyComplete
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.exe
+C:\Users\Alex\Dropbox\Fairy Tail\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.pdb
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\XMLFile1.xml
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\ESTF.exe.config
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\ESTF.exe
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\ESTF.pdb
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\FastColoredTextBox.xml
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\bin\Debug\RoundedTextbox.xml
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csprojAssemblyReference.cache
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Add_lessons.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Classcreator.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.create_Project.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Est.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.ESTF.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.ESTFchild.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Form1.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Form2.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.MainWindow.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Progressform.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.WorkSpace.resources
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csproj.GenerateResource.cache
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csproj.CoreCompileInputs.cache
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.csproj.CopyComplete
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.exe
+C:\Users\Yasuf\git\doktorat\IDE for beginners - prototype\Last Version\ESTF\obj\Debug\ESTF.pdb
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\bin\Debug\XMLFile1.xml
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\bin\Debug\ESTF.exe.config
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\bin\Debug\ESTF.exe
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\bin\Debug\ESTF.pdb
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\bin\Debug\FastColoredTextBox.xml
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\bin\Debug\RoundedTextbox.xml
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csprojAssemblyReference.cache
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Add_lessons.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Classcreator.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.create_Project.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Est.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.ESTF.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.ESTFchild.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Form1.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Form2.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.MainWindow.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Progressform.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.WorkSpace.resources
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.GenerateResource.cache
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.CoreCompileInputs.cache
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.CopyComplete
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.exe
+C:\Users\Yasuf\git\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.pdb
+C:\doktorat\IDE\LastVersion\ESTF\bin\Debug\XMLFile1.xml
+C:\doktorat\IDE\LastVersion\ESTF\bin\Debug\ESTF.exe.config
+C:\doktorat\IDE\LastVersion\ESTF\bin\Debug\ESTF.exe
+C:\doktorat\IDE\LastVersion\ESTF\bin\Debug\ESTF.pdb
+C:\doktorat\IDE\LastVersion\ESTF\bin\Debug\FastColoredTextBox.xml
+C:\doktorat\IDE\LastVersion\ESTF\bin\Debug\RoundedTextbox.xml
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csprojAssemblyReference.cache
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Add_lessons.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Classcreator.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Progressform.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.WorkSpace.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.GenerateResource.cache
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.CoreCompileInputs.cache
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.CopyComplete
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.exe
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.pdb
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.EmailForm.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.LoginForm.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.OpenNewProject.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.DuckForm.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Add_lessons.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Classcreator.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.create_Project.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.DuckForm.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.EmailForm.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Est.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.ESTF.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.ESTFchild.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Form1.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Form2.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.LoginForm.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.MainWindow.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.OpenNewProject.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Progressform.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Properties.Resources.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.Splashpageescape.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.WorkSpace.resources
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.GenerateResource.cache
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.CoreCompileInputs.cache
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\bin\Debug\XMLFile1.xml
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\bin\Debug\ESTF.exe.config
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\bin\Debug\ESTF.exe
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\bin\Debug\ESTF.pdb
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.csproj.CopyComplete
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.exe
+C:\doc\Nagareboshi-doktorat-07b869af014d\IDE\LastVersion\ESTF\obj\Debug\ESTF.pdb
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.LoadingScreen.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.CreateProject.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.ProjectWindow.resources
+C:\doktorat\IDE\LastVersion\ESTF\obj\Debug\ESTF.ProjectEditor.resources

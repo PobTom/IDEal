@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<ruleset name="IfStatements"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+		Contains rules for if and if-else statements.
+	</description>
+
+	<rule name="UnconditionalIfStatement"
+          language="java"
+          since="1.5"
+          message="Found an if statement"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#UnconditionalIfStatement">
+		<description>
+Finds an if statement.
+		</description>
+		<priority>3</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//IfStatement/Expression
+]]>
+				</value>
+			</property>
+		</properties>
+
+	</rule>
+
+</ruleset>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<ruleset name="Classes"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+Found a class.
+	</description>
+
+	<rule	name="UsedClass"
+			language="java"
+			 since="4.2"
+				class="net.sourceforge.pmd.lang.rule.XPathRule"
+				message="A class has been found"
+				externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#ReturnEmptyArrayRatherThanNull">
+			<description>
+			Used a class
+		</description>
+		<priority>1</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+						//ClassOrInterfaceDeclaration[@Interface='false']
+					]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+
+
+</ruleset>

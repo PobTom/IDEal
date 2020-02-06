@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<ruleset name="Vectors"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+Finds Vectors
+	</description>
+	<rule name="UseArrayListInsteadOfVector"
+   		language="java"
+    		 since="3.0"
+          message="Use ArrayList instead of Vector"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/optimizations.html#UseArrayListInsteadOfVector">
+		<description>
+Finds Vectors		</description>
+		<priority>3</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//CompilationUnit[count(ImportDeclaration) = 0 or count(ImportDeclaration/Name[@Image='java.util.Vector']) > 0]
+  //AllocationExpression/ClassOrInterfaceType
+    [@Image='Vector' or @Image='java.util.Vector']
+]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

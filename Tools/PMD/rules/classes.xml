@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+
+<ruleset name="Classes"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+Ruleset to check for excessing class length, god classes and class naming conventions.
+	</description>
+
+	<rule name="ExcessiveClassLength"
+ 		 since="0.6"
+       message="Avoid really long classes."
+       class="net.sourceforge.pmd.lang.java.rule.codesize.ExcessiveClassLengthRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/codesize.html#ExcessiveClassLength">
+		<description>
+Excessive class file lengths are usually indications that the class may be burdened with excessive 
+responsibilities that could be provided by external classes or functions. In breaking these methods
+apart the code becomes more managable and ripe for reuse.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+	public void bar1() {
+    // 1000 lines of code
+	}
+	public void bar2() {
+    // 1000 lines of code
+	}
+    public void bar3() {
+    // 1000 lines of code
+	}
+	
+	
+    public void barN() {
+    // 1000 lines of code
+	}
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="GodClass"
+        language="java"
+        since="5.0"
+        message="Possible God class"
+        class="net.sourceforge.pmd.lang.java.rule.design.GodClassRule"
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#GodClass">
+		<description>
+The God Class rule detects the God Class design flaw using metrics. God classes do too many things,
+are very big and overly complex. They should be split apart to be more object-oriented.
+The rule uses the detection strategy described in "Object-Oriented Metrics in Practice".
+The violations are reported against the entire class. See also the references:
+Michele Lanza and Radu Marinescu. Object-Oriented Metrics in Practice:
+Using Software Metrics to Characterize, Evaluate, and Improve the Design
+of Object-Oriented Systems. Springer, Berlin, 1 edition, October 2006. Page 80.
+		</description>
+		<priority>7</priority>
+	</rule>
+
+	<rule name="ClassNamingConventions"
+    		 since="1.2"
+          message="Class names should begin with an uppercase character"
+          class="net.sourceforge.pmd.lang.java.rule.naming.ClassNamingConventionsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#ClassNamingConventions">
+		<description>
+Class names should always begin with an upper case character.
+		</description>
+		<priority>9</priority>
+		<example>
+			<![CDATA[
+public class Foo {}
+]]>
+		</example>
+	</rule>
+
+	<rule 	name="ShortClassName"
+   		language="java"
+            since="5.0"
+            message="A Classname should have a minimum of four characters"
+            class="net.sourceforge.pmd.lang.rule.XPathRule"
+          	externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#ShortClassName">
+		<description>
+			<![CDATA[
+Classnames with fewer than four characters are not recommended.
+			]]>
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//ClassOrInterfaceDeclaration[string-length(@Image) < 4]
+                      ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+}
+    ]]>
+		</example>
+	</rule>
+
+
+</ruleset>

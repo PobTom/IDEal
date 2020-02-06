@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+
+<ruleset name="IfStatements"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+		Contains rules for if and if-else statements.
+	</description>
+
+	<rule name="UnconditionalIfStatement"
+          language="java"
+          since="1.5"
+          message="Do not use 'if' statements that are always true or always false"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#UnconditionalIfStatement">
+		<description>
+Do not use "if" statements whose conditionals are always true or always false.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//IfStatement/Expression
+ [count(PrimaryExpression)=1]
+ /PrimaryExpression/PrimaryPrefix/Literal/BooleanLiteral
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+	public void close() {
+		if (true) {		// fixed conditional, not recommended
+			// ...
+		}
+	}
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="CollapsibleIfStatements"
+          language="java"
+          since="3.1"
+          message="These nested if statements could be combined"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#CollapsibleIfStatements">
+		<description>
+Sometimes two consecutive 'if' statements can be consolidated by separating their conditions with a boolean short-circuit operator.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//IfStatement[@Else='false']/Statement
+ /IfStatement[@Else='false']
+ |
+//IfStatement[@Else='false']/Statement
+ /Block[count(BlockStatement)=1]/BlockStatement
+  /Statement/IfStatement[@Else='false']]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+void bar() {
+	if (x) {			// original implementation
+		if (y) {
+			// do stuff
+		}
+	}
+}
+
+void bar() {
+	if (x && y) {		// optimized implementation
+		// do stuff
+	}
+}
+ ]]>
+		</example>
+	</rule>
+
+	<rule name="IfStmtsMustUseBraces"
+   		language="java"
+   		since="1.0"
+         message="Avoid using if statements without curly braces"
+         class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/braces.html#IfStmtsMustUseBraces">
+		<description>
+Avoid using if statements without using braces to surround the code block. If the code 
+formatting or indentation is lost then it becomes difficult to separate the code being
+controlled from the rest.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//IfStatement[count(*) < 3][not(Statement/Block)]
+                   ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+
+if (foo)	// not recommended
+	x++;
+
+if (foo) {	// preferred approach
+	x++;
+}
+
+ ]]>
+		</example>
+	</rule>
+
+	<rule name="IfElseStmtsMustUseBraces"
+            language="java"
+            since="0.2"
+            message="Avoid using 'if...else' statements without curly braces"
+            class="net.sourceforge.pmd.lang.rule.XPathRule"
+            externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/braces.html#IfElseStmtsMustUseBraces">
+		<description>
+Avoid using if..else statements without using surrounding braces. If the code formatting 
+or indentation is lost then it becomes difficult to separate the code being controlled 
+from the rest.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//Statement
+ [parent::IfStatement[@Else='true']]
+ [not(child::Block)]
+ [not(child::IfStatement)]
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+   // this is OK
+if (foo) x++;
+   
+   // but this is not
+if (foo)
+       x = x+1;
+   else
+       x = x-1;
+]]>
+		</example>
+	</rule>
+
+	<rule  name="AvoidLiteralsInIfCondition"
+      language="java" since="4.2.6"
+      message="Avoid using Literals in Conditional Statements"
+      class="net.sourceforge.pmd.lang.rule.XPathRule"
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/controversial.html#AvoidLiteralsInIfCondition">
+		<description>
+Avoid using hard-coded literals in conditional statements. By declaring them as static variables
+or private members with descriptive names maintainability is enhanced.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal[not(NullLiteral)]
+[not(//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal[@Image="0"])]
+[not(//IfStatement/Expression/*/PrimaryExpression/PrimaryPrefix/Literal[@Image="1"])]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+private static final int TEN = 10;
+
+public void downCastPrimitiveType() {
+
+    if (i == 10) {		// magic number, buried in a method
+      doSomething();
+    }
+
+    if (i == TEN) {		// preferred approach
+      doSomething();
+    }
+}
+]]>
+		</example>
+	</rule>
+
+	<rule 	name="SimplifyBooleanExpressions"
+   			language="java"
+    		since="1.05"
+          	message="Avoid unnecessary comparisons in boolean expressions"
+          	class="net.sourceforge.pmd.lang.rule.XPathRule"
+          	externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#SimplifyBooleanExpressions">
+		<description>
+Avoid unnecessary comparisons in boolean expressions, they serve no purpose and impacts readability.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//EqualityExpression/PrimaryExpression
+ /PrimaryPrefix/Literal/BooleanLiteral
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Bar {
+  // can be simplified to
+  // bar = isFoo();
+  private boolean bar = (isFoo() == true);
+
+  public isFoo() { return false;}
+}
+  ]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidDeeplyNestedIfStmts"
+  		  since="1.0"
+        message="Deeply nested if..then statements are hard to read"
+        class="net.sourceforge.pmd.lang.java.rule.design.AvoidDeeplyNestedIfStmtsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#AvoidDeeplyNestedIfStmts">
+		<description>
+Avoid creating deeply nested if-then statements since they are harder to read and error-prone to maintain.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+  public void bar(int x, int y, int z) {
+    if (x>y) {
+      if (y>z) {
+        if (z==x) {
+         // !! too deep
+        }
+      }
+    }
+  }
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="EmptyIfStmt"
+    		 language="java"
+    		 since="0.1"
+          message="Avoid empty 'if' statements"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyIfStmt">
+		<description>
+Empty If Statement finds instances where a condition is checked but nothing is done about it.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//IfStatement/Statement
+ [EmptyStatement or Block[count(*) = 0]]
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+ void bar(int x) {
+  if (x == 0) {
+   // empty!
+  }
+ }
+}
+ ]]>
+		</example>
+	</rule>
+
+
+</ruleset>

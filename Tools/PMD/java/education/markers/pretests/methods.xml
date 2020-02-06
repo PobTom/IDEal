@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<ruleset name="Methods"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+A ruleset for checking methods, including complexity and naming.	</description>
+
+<rule name="FindMethod"
+   		language="java"
+  		  since="0.3"
+        message="Avoid using short method names"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/naming.html#ShortMethodName">
+	<description>
+A rule to find methods
+	</description>
+	<priority>3</priority>
+	<properties>
+		<property name="xpath">
+			<value>
+				<![CDATA[
+					//MethodDeclarator
+                  ]]>
+			</value>
+		</property>
+	</properties>
+
+</rule>
+
+</ruleset>

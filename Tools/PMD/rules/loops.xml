@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+
+<ruleset name="Loops"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+This ruleset has rules for assessing loops. E.g loops must use braces, don't use jumbled incrementers, and avoid instantiating objects within loops.
+	</description>
+
+	<rule name="AvoidBranchingStatementAsLastInLoop"
+	  	  since="5.0"
+		  class="net.sourceforge.pmd.lang.java.rule.basic.AvoidBranchingStatementAsLastInLoopRule"
+		  message="Avoid using a branching statement as the last in a loop."
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#AvoidBranchingStatementAsLastInLoop">
+		<description>
+			<![CDATA[
+Using a branching statement as the last part of a loop may be a bug, and/or is confusing.
+Ensure that the usage is not a bug, or consider using another approach.
+            ]]>
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+  // unusual use of branching statement in a loop
+for (int i = 0; i < 10; i++) {
+	if (i*i <= 25) {
+		continue;
+	}
+	break;
+}
+
+  // this makes more sense...
+for (int i = 0; i < 10; i++) {
+	if (i*i > 25) {
+		break;
+	}
+}
+            ]]>
+		</example>
+	</rule>
+
+	<rule  name="DontUseFloatTypeForLoopIndices"
+         language="java"
+         since="4.3"
+         message="Don't use floating point for loop indices. If you must use floating point, use double."
+         class="net.sourceforge.pmd.lang.rule.XPathRule"
+         externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#DontUseFloatTypeForLoopIndices">
+		<description>
+Don't use floating point for loop indices. If you must use floating point, use double
+unless you're certain that float provides enough precision and you have a compelling
+performance need (space or time).
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//ForStatement/ForInit/LocalVariableDeclaration
+/Type/PrimitiveType[@Image="float"]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Count {
+  public static void main(String[] args) {
+    final int START = 2000000000;
+    int count = 0;
+    for (float f = START; f < START + 50; f++)
+      count++;
+      //Prints 0 because (float) START == (float) (START + 50).
+      System.out.println(count);
+      //The termination test misbehaves due to floating point granularity.
+    }
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="ForLoopsMustUseBraces"
+           language="java"
+           since="0.7"
+           message="Avoid using 'for' statements without curly braces"
+           class="net.sourceforge.pmd.lang.rule.XPathRule"
+           externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/braces.html#ForLoopsMustUseBraces">
+		<description>
+Avoid using 'for' statements without using curly braces. If the code formatting or 
+indentation is lost then it becomes difficult to separate the code being controlled 
+from the rest.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//ForStatement[not(Statement/Block)]
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+for (int i = 0; i < 42; i++)
+   foo();
+]]>
+		</example>
+	</rule>
+
+	<rule name="WhileLoopsMustUseBraces"
+   		language="java"
+    		 since="0.7"
+          message="Avoid using 'while' statements without curly braces"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/braces.html#WhileLoopsMustUseBraces">
+		<description>
+Avoid using 'while' statements without using braces to surround the code block. If the code 
+formatting or indentation is lost then it becomes difficult to separate the code being
+controlled from the rest.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//WhileStatement[not(Statement/Block)]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+while (true)	// not recommended
+      x++;
+      
+while (true) {	// preferred approach
+      x++;
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="EmptyWhileStmt"
+    		 language="java"
+    		 since="0.2"
+          message="Avoid empty 'while' statements"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptyWhileStmt">
+		<description>
+Empty While Statement finds all instances where a while statement does nothing.  
+If it is a timing loop, then you should use Thread.sleep() for it; if it is
+a while loop that does a lot in the exit expression, rewrite it to make it clearer.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//WhileStatement/Statement[./Block[count(*) = 0]  or ./EmptyStatement]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+void bar(int a, int b) {
+	while (a == b) {
+	// empty!
+	}
+}
+ ]]>
+		</example>
+	</rule>
+
+	<rule name="AvoidInstantiatingObjectsInLoops"
+  		  since="2.2"
+        message="Avoid instantiating new objects inside loops"
+        class="net.sourceforge.pmd.lang.java.rule.optimizations.AvoidInstantiatingObjectsInLoopsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops">
+		<description>
+Warning only - Check to see if creating objects within a loop is necessary as this is often a mistake.
+		</description>
+		<priority>1</priority>
+		<example>
+			<![CDATA[
+public class Something {
+	public static void main( String as[] ) {  
+		for (int i = 0; i < 10; i++) {
+		    Foo f = new Foo(); // Avoid this whenever you can it's really expensive
+		}
+	}
+}
+]]>
+		</example>
+	</rule>
+</ruleset>

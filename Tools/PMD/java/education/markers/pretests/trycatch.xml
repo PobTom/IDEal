@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<ruleset name="TryCatch"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+Finds try catch
+	</description>
+
+	<rule name="findTry"
+          language="java"
+          since="1.05"
+          message="Avoid returning from a finally block"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/basic.html#ReturnFromFinallyBlock">
+		<description>
+			Finds try blocks
+		</description>
+		<priority>3</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//TryStatement
+]]>
+				</value>
+			</property>
+		</properties>
+
+	</rule>
+
+</ruleset>

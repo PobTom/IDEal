@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<ruleset name="abstractclasses"
+		xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+		Pretest to check that an abstract class exists.
+	</description>
+
+	<rule name="AbstractClassWithoutAbstractMethod"
+			language="java"
+			since="3.0"
+			message="Found an abstract class."
+			class="net.sourceforge.pmd.lang.rule.XPathRule"
+			externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#AbstractClassWithoutAbstractMethod">
+		<description>
+			Finds abstract class.
+		</description>
+		<priority>3</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+						//ClassOrInterfaceDeclaration
+						 [@Abstract='true']
+					]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+
+</ruleset>

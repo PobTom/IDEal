@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+
+<ruleset name="Switches"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+The Basic ruleset contains a collection of tests for common mistakes when using switches.
+	</description>
+
+	<rule name="SwitchStmtsShouldHaveDefault"
+   		language="java"
+  		  since="1.0"
+        message="Switch statements should have a default label"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#SwitchStmtsShouldHaveDefault">
+		<description>
+All switch statements should include a default option to catch any unspecified values.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement[not(SwitchLabel[@Default='true'])]
+                  ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public void bar() {
+    int x = 2;
+    switch (x) {
+      case 1: int j = 6;
+      case 2: int j = 8;
+      				// missing default: here
+    }
+}
+]]>
+		</example>
+	</rule>
+
+
+	<rule name="SwitchDensity"
+    		 since="1.02"
+          message="A high ratio of statements to labels in a switch statement.  Consider refactoring."
+          class="net.sourceforge.pmd.lang.java.rule.design.SwitchDensityRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#SwitchDensity">
+		<description>
+A high ratio of statements to labels in a switch statement implies that the switch statement 
+is overloaded.  Consider moving the statements into new methods or creating subclasses based 
+on the switch variable.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+public class Foo {
+  public void bar(int x) {
+    switch (x) {
+      case 1: {
+        // lots of statements
+        break;
+      } case 2: {
+        // lots of statements
+        break;
+      }
+    }
+  }
+}
+ ]]>
+		</example>
+	</rule>
+
+	<rule name="DefaultLabelNotLastInSwitchStmt"
+   		language="java"
+    		  since="1.5"
+           message="The default label should be the last label in a switch statement"
+           class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#DefaultLabelNotLastInSwitchStmt">
+		<description>
+By convention, the default label should be the last label in a switch statement.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement
+ [not(SwitchLabel[position() = last()][@Default='true'])]
+ [SwitchLabel[@Default='true']]
+]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+  void bar(int a) {
+   switch (a) {
+    case 1:  // do something
+       break;
+    default:  // the default case should be last, by convention
+       break;
+    case 2:
+       break;
+   }
+  }
+}   ]]>
+		</example>
+	</rule>
+
+	<rule name="NonCaseLabelInSwitchStatement"
+   		language="java"
+    		  since="1.5"
+           message="A non-case label was present in a switch statement"
+           class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#NonCaseLabelInSwitchStatement">
+		<description>
+A non-case label (e.g. a named break/continue label) was present in a switch statement.
+This legal, but confusing. It is easy to mix up the case labels and the non-case labels.
+		</description>
+		<priority>9</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement//BlockStatement/Statement/LabeledStatement
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public class Foo {
+  void bar(int a) {
+   switch (a) {
+     case 1:
+       // do something
+       break;
+     mylabel: // this is legal, but confusing!
+       break;
+     default:
+       break;
+    }
+  }
+}
+   ]]>
+		</example>
+	</rule>
+
+	<!--
+	<rule name="MissingBreakInSwitch"
+          language="java"
+          since="3.0"
+          message="A switch statement does not contain a break"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#MissingBreakInSwitch">
+		<description>
+Switch statements without break or return statements for each case option
+may indicate problematic behaviour. Empty cases are ignored as these indicate an intentional fall-through.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement
+[(count(.//BreakStatement)
+ + count(BlockStatement/Statement/ReturnStatement)
+ + count(BlockStatement/Statement/ThrowStatement)
+ + count(SwitchLabel[name(following-sibling::node()) = 'SwitchLabel'])
+ + count(SwitchLabel[count(following-sibling::node()) = 0 or count(child::node()) = 0])
+  < count (SwitchLabel))]
+    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public void bar(int status) {
+    switch(status) {
+      case CANCELLED:
+        doCancelled();
+        // break; hm, should this be commented out?
+      case NEW:
+        doNew();
+        // is this really a fall-through?
+      case REMOVED:
+        doRemoved();
+        // what happens if you add another case after this one?
+      case OTHER: // empty case - this is interpreted as an intentional fall-through
+      case ERROR:
+        doErrorHandling();
+        break;
+    }
+}
+]]>
+		</example>
+	</rule>
+-->
+	<rule	name="TooFewBranchesForASwitchStatement"
+   		language="java"
+            	since="4.2"
+	        class="net.sourceforge.pmd.lang.rule.XPathRule"
+	        message="A switch with less than three branches is inefficient, use a 'if statement' instead."
+	        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/design.html#TooFewBranchesForASwitchStatement">
+		<description>
+Switch statements are indended to be used to support complex branching behaviour. Using a switch for only a few 
+cases is ill-advised, since switches are not as easy to understand as if-then statements. In these cases use the
+if-then statement to increase code readability.
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="minimumNumberCaseForASwitch" type="Integer" description="Minimum number of branches for a switch" min="1" max="100" value="3"/>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement[
+	(count(.//SwitchLabel) < $minimumNumberCaseForASwitch)
+]
+                    ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+// With a minimumNumberCaseForASwitch of 3	    
+public class Foo {
+	public void bar() {
+		switch (condition) {
+             		case ONE:
+	        	        instruction;
+				break;
+	        	default:
+				break; // not enough for a 'switch' stmt, a simple 'if' stmt would have been more appropriate
+		}
+	}
+}
+            ]]>
+		</example>
+	</rule>
+
+	<rule name="EmptySwitchStatements"
+    		 language="java"
+    		 since="1.0"
+          message="Avoid empty switch statements"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/empty.html#EmptySwitchStatements">
+		<description>
+Empty switch statements serve no purpose and should be removed.
+		</description>
+		<priority>7</priority>
+		<properties>
+			<property name="xpath">
+				<value>
+					<![CDATA[
+//SwitchStatement[count(*) = 1]
+ ]]>
+				</value>
+			</property>
+		</properties>
+		<example>
+			<![CDATA[
+public void bar() {
+	int x = 2;
+	switch (x) {
+	// once there was code here
+	// but it's been commented out or something
+	}
+}
+]]>
+		</example>
+	</rule>
+
+</ruleset>

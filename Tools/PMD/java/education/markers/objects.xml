@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+
+<ruleset name="Objects"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+	<description>
+A rulset which checks for common problems with objects, including too many methods, NcssConstructorCount and coupling.
+	</description>
+
+	<rule name="NcssConstructorCount" message="The constructor with {0} parameters has an NCSS line count of {1}"
+   since="3.9"
+   class="net.sourceforge.pmd.lang.java.rule.codesize.NcssConstructorCountRule"
+   externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/codesize.html#NcssConstructorCount">
+		<description>
+This rule uses the NCSS (Non-Commenting Source Statements) algorithm to determine the number of lines
+of code for a given constructor. NCSS ignores comments, and counts actual statements. Using this algorithm,
+lines of code that are split are counted as one.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public class Foo extends Bar {
+ public Foo() {
+     super();
+ //this constructor only has 1 NCSS lines
+      super.foo();
+ }
+}
+]]>
+		</example>
+	</rule>
+
+	<rule
+        name="TooManyMethods"
+   		language="java"
+        since="4.2"
+        class="net.sourceforge.pmd.lang.rule.XPathRule"
+        message="This class has too many methods, consider refactoring it."
+        externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/codesize.html#TooManyMethods">
+		<description>
+			<![CDATA[
+A class with too many methods is probably a good suspect for refactoring, in order to reduce its complexity and find a way to
+have more fine grained objects.
+            ]]>
+		</description>
+		<priority>8</priority>
+		<properties>
+			<property name="maxmethods" type="Integer" description="The method count reporting threshold" min="1" max="1000" value="20"/>
+			<property name="xpath">
+				<value>
+					<!--  FIXME: Refine XPath to discard 'get' and 'set' methods with Block no more than 3 lines,
+                                something like this:
+                                    not (
+                                            (
+                                                starts-with(@Image,'get')
+                                                or
+                                                starts-with(@Image,'set')
+                                                or
+                                                starts-with(@Image,'is')
+                                            )
+                                            and (
+                                                    (
+                                                        (../Block/attribute::endLine)
+                                                         -
+                                                        (../Block/attribute::beginLine)
+                                                    ) <= 3
+                                            )
+                                        )
+                                This will avoid discarding 'real' method...
+                     -->
+					<![CDATA[
+ //ClassOrInterfaceDeclaration/ClassOrInterfaceBody
+     [
+      count(descendant::MethodDeclarator[
+         not (
+                starts-with(@Image,'get')
+                or
+                starts-with(@Image,'set')
+                or
+                starts-with(@Image,'is')
+            )
+      ]) > $maxmethods
+   ]
+                    ]]>
+				</value>
+			</property>
+		</properties>
+	</rule>
+
+
+	<rule name="CouplingBetweenObjects"
+    		  since="1.04"
+        message="High amount of different objects as members denotes a high coupling"
+        class="net.sourceforge.pmd.lang.java.rule.coupling.CouplingBetweenObjectsRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/coupling.html#CouplingBetweenObjects">
+		<description>
+This rule counts the number of unique attributes, local variables, and return types within an object. 
+A number higher than the specified threshold can indicate a high degree of coupling.
+		</description>
+		<priority>8</priority>
+		<example>
+			<![CDATA[
+import com.Blah;
+import org.Bar;
+import org.Bardo;
+
+public class Foo {
+   private Blah var1;
+   private Bar var2;
+ 
+ 	//followed by many imports of unique objects
+   void ObjectC doWork() {
+     Bardo var55;
+     ObjectA var44;
+     ObjectZ var93;
+     return something;
+   }
+}
+]]>
+		</example>
+	</rule>
+
+	<rule name="UnnecessaryWrapperObjectCreation"
+          since="3.8"
+          message="Unnecessary wrapper object creation"
+          class="net.sourceforge.pmd.lang.java.rule.optimizations.UnnecessaryWrapperObjectCreationRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.1/rules/java/optimizations.html#UnnecessaryWrapperObjectCreation">
+		<description>
+Most wrapper classes provide static conversion methods that avoid the need to create intermediate objects
+just to create the primitive forms. Using these avoids the cost of creating objects that also need to be 
+garbage-collected later.
+		</description>
+		<priority>7</priority>
+		<example>
+			<![CDATA[
+public int convert(String s) {
+  int i, i2;
+
+  i = Integer.valueOf(s).intValue(); // this wastes an object
+  i = Integer.parseInt(s); 			 // this is better
+
+  i2 = Integer.valueOf(i).intValue(); // this wastes an object
+  i2 = i; // this is better
+
+  String s3 = Integer.valueOf(i2).toString(); // this wastes an object
+  s3 = Integer.toString(i2); 		// this is better
+
+  return i2;
+}
+]]>
+		</example>
+	</rule>
+
+</ruleset>

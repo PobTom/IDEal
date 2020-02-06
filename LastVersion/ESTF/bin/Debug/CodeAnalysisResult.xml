@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.13.0" timestamp="2020-01-23T18:14:10.310">
+<file name="C:\doktorat\IDE\LastVersion\ESTF\ESTFProject\Project_05\Test.java">
+<violation beginline="1" endline="8" begincolumn="9" endcolumn="1" rule="NoPackage" ruleset="Code Style" class="Test" externalInfoUrl="https://pmd.github.io/pmd/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes and interfaces must belong to a named package
+</violation>
+<violation beginline="2" endline="8" begincolumn="1" endcolumn="1" rule="UseUtilityClass" ruleset="Design" class="Test" externalInfoUrl="https://pmd.github.io/pmd/pmd_rules_java_design.html#useutilityclass" priority="3">
+All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+</violation>
+</file>
+</pmd>
